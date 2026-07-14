@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>星河倒数</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="countdown-shell" aria-labelledby="page-title">
+    <section class="hero-card">
+      <p class="eyebrow">COUNTDOWN MOMENT</p>
+      <h1 id="page-title">星河倒数</h1>
+      <p class="subtitle">选择一个重要时刻，让每一秒都变得清晰而闪耀。</p>
+
+      <form class="target-form" id="countdown-form">
+        <label for="target-date">目标日期与时间</label>
+        <div class="form-row">
+          <input id="target-date" name="targetDate" type="datetime-local" required />
+          <button type="submit">开始倒数</button>
+        </div>
+      </form>
+
+      <div class="countdown-grid" role="timer" aria-live="polite">
+        <article class="time-box">
+          <span id="days">00</span>
+          <small>天</small>
+        </article>
+        <article class="time-box">
+          <span id="hours">00</span>
+          <small>小时</small>
+        </article>
+        <article class="time-box">
+          <span id="minutes">00</span>
+          <small>分钟</small>
+        </article>
+        <article class="time-box">
+          <span id="seconds">00</span>
+          <small>秒</small>
+        </article>
+      </div>
+
+      <p class="status-message" id="status-message">已为你设置 30 天后的默认目标。</p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
