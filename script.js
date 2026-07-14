@@ -1,10 +1,6 @@
 const form = document.querySelector("#countdown-form");
 const targetInput = document.querySelector("#target-date");
 const statusMessage = document.querySelector("#status-message");
-const targetImageInput = document.querySelector("#target-image");
-const imagePreview = document.querySelector("#image-preview");
-const previewImage = document.querySelector("#preview-image");
-const previewCaption = document.querySelector("#preview-caption");
 const units = {
   days: document.querySelector("#days"),
   hours: document.querySelector("#hours"),
@@ -19,7 +15,6 @@ const toLocalInputValue = (date) => {
 };
 
 let targetTime = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000);
-let previewImageUrl = "";
 targetInput.value = toLocalInputValue(targetTime);
 
 function renderCountdown() {
@@ -45,28 +40,6 @@ function renderCountdown() {
   units.minutes.textContent = pad(minutes);
   units.seconds.textContent = pad(seconds);
 }
-
-targetImageInput.addEventListener("change", () => {
-  const [file] = targetImageInput.files;
-
-  if (previewImageUrl) {
-    URL.revokeObjectURL(previewImageUrl);
-    previewImageUrl = "";
-  }
-
-  if (!file) {
-    imagePreview.hidden = true;
-    previewImage.removeAttribute("src");
-    previewCaption.textContent = "目标图片已添加";
-    return;
-  }
-
-  previewImageUrl = URL.createObjectURL(file);
-  previewImage.src = previewImageUrl;
-  previewImage.alt = `${file.name} 目标图片预览`;
-  previewCaption.textContent = file.name;
-  imagePreview.hidden = false;
-});
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();

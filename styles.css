@@ -1,13 +1,13 @@
 :root {
   color-scheme: dark;
-  --bg: #071f13;
-  --card: rgba(12, 42, 24, 0.78);
-  --card-border: rgba(219, 255, 205, 0.2);
-  --text: #f7fff2;
-  --muted: #c5dcbc;
-  --accent: #b5ff8f;
-  --accent-strong: #48d36c;
-  --shadow: rgba(0, 0, 0, 0.34);
+  --bg: #090b1a;
+  --card: rgba(17, 22, 48, 0.78);
+  --card-border: rgba(255, 255, 255, 0.16);
+  --text: #f7f8ff;
+  --muted: #aeb6d9;
+  --accent: #8ef8ff;
+  --accent-strong: #a979ff;
+  --shadow: rgba(0, 0, 0, 0.36);
 }
 
 * {
@@ -20,11 +20,10 @@ body {
   font-family: Inter, "PingFang SC", "Microsoft YaHei", sans-serif;
   color: var(--text);
   background:
-    radial-gradient(circle at 18% 12%, rgba(205, 255, 170, 0.28), transparent 24rem),
-    radial-gradient(circle at 82% 84%, rgba(72, 211, 108, 0.24), transparent 28rem),
-    linear-gradient(135deg, #071f13 0%, #113b22 50%, #0b2818 100%);
+    radial-gradient(circle at top left, rgba(142, 248, 255, 0.28), transparent 32rem),
+    radial-gradient(circle at bottom right, rgba(169, 121, 255, 0.3), transparent 30rem),
+    linear-gradient(135deg, #090b1a 0%, #111735 55%, #1b1140 100%);
   overflow-x: hidden;
-  isolation: isolate;
 }
 
 body::before {
@@ -33,30 +32,11 @@ body::before {
   pointer-events: none;
   content: "";
   background-image:
-    linear-gradient(88deg, transparent 0 7%, rgba(152, 231, 118, 0.45) 7.3% 8.4%, rgba(38, 119, 54, 0.55) 8.7% 9.2%, transparent 9.6% 19%),
-    linear-gradient(92deg, transparent 0 15%, rgba(197, 255, 145, 0.32) 15.3% 16.5%, rgba(22, 88, 40, 0.44) 16.8% 17.4%, transparent 17.8% 31%),
-    radial-gradient(ellipse at 14% 22%, rgba(188, 255, 147, 0.38) 0 4%, transparent 4.4%),
-    radial-gradient(ellipse at 76% 18%, rgba(188, 255, 147, 0.28) 0 5%, transparent 5.4%),
-    radial-gradient(ellipse at 54% 74%, rgba(188, 255, 147, 0.22) 0 6%, transparent 6.4%);
-  background-position: 0 0, 36px 0, 0 0, 0 0, 0 0;
-  background-size: 180px 100%, 230px 100%, 420px 260px, 520px 300px, 480px 320px;
-  z-index: -1;
-  opacity: 0.5;
-}
-
-body::after {
-  position: fixed;
-  inset: auto 0 0;
-  height: 42vh;
-  pointer-events: none;
-  content: "";
-  background:
-    linear-gradient(160deg, transparent 8%, rgba(144, 229, 94, 0.24) 8.4% 10.2%, transparent 10.6% 100%),
-    linear-gradient(26deg, transparent 12%, rgba(144, 229, 94, 0.2) 12.4% 14.2%, transparent 14.6% 100%);
-  background-size: 160px 180px, 190px 200px;
-  filter: blur(0.2px);
-  z-index: -1;
-  opacity: 0.72;
+    radial-gradient(#ffffff 0.75px, transparent 0.75px),
+    radial-gradient(#8ef8ff 0.65px, transparent 0.65px);
+  background-position: 0 0, 42px 38px;
+  background-size: 86px 86px, 110px 110px;
+  opacity: 0.22;
 }
 
 .countdown-shell {
@@ -141,76 +121,14 @@ button {
   font-weight: 900;
   cursor: pointer;
   background: linear-gradient(135deg, var(--accent), var(--accent-strong));
-  box-shadow: 0 12px 30px rgba(181, 255, 143, 0.22);
+  box-shadow: 0 12px 30px rgba(142, 248, 255, 0.22);
   transition: transform 180ms ease, box-shadow 180ms ease;
 }
 
 button:hover,
-button:focus-visible,
-.image-button:hover,
-.image-button:focus-visible,
-.image-picker input:focus-visible + .image-button {
+button:focus-visible {
   transform: translateY(-2px);
-  box-shadow: 0 16px 36px rgba(72, 211, 108, 0.32);
-}
-
-.image-picker {
-  max-width: 40rem;
-  margin: 0 auto 2rem;
-  text-align: center;
-}
-
-.image-picker input {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
-
-.image-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 3.25rem;
-  padding: 0 1.4rem;
-  color: #10132a;
-  font-weight: 900;
-  cursor: pointer;
-  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
-  border-radius: 999px;
-  box-shadow: 0 12px 30px rgba(181, 255, 143, 0.22);
-  transition: transform 180ms ease, box-shadow 180ms ease;
-}
-
-.image-picker p {
-  margin: 0.85rem 0 0;
-  color: var(--muted);
-}
-
-.image-preview {
-  margin: 1.2rem auto 0;
-  overflow: hidden;
-  border: 1px solid rgba(219, 255, 205, 0.22);
-  border-radius: 24px;
-  background: rgba(255, 255, 255, 0.08);
-}
-
-.image-preview img {
-  display: block;
-  width: 100%;
-  max-height: 18rem;
-  object-fit: cover;
-}
-
-.image-preview figcaption {
-  padding: 0.8rem 1rem;
-  color: var(--muted);
-  font-weight: 700;
+  box-shadow: 0 16px 36px rgba(169, 121, 255, 0.32);
 }
 
 .countdown-grid {
