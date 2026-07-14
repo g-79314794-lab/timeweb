@@ -21,6 +21,16 @@
         </div>
       </form>
 
+      <div class="image-picker">
+        <input id="target-image" name="targetImage" type="file" accept="image/*" aria-describedby="image-help" />
+        <label class="image-button" for="target-image">添加目标图片</label>
+        <p id="image-help">上传一张照片，为这个倒数目标添加画面感。</p>
+        <figure class="image-preview" id="image-preview" hidden>
+          <img id="preview-image" alt="目标图片预览" />
+          <figcaption id="preview-caption">目标图片已添加</figcaption>
+        </figure>
+      </div>
+
       <div class="countdown-grid" role="timer" aria-live="polite">
         <article class="time-box">
           <span id="days">00</span>
