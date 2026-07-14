@@ -1,0 +1,187 @@
+:root {
+  color-scheme: dark;
+  --bg: #090b1a;
+  --card: rgba(17, 22, 48, 0.78);
+  --card-border: rgba(255, 255, 255, 0.16);
+  --text: #f7f8ff;
+  --muted: #aeb6d9;
+  --accent: #8ef8ff;
+  --accent-strong: #a979ff;
+  --shadow: rgba(0, 0, 0, 0.36);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  font-family: Inter, "PingFang SC", "Microsoft YaHei", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top left, rgba(142, 248, 255, 0.28), transparent 32rem),
+    radial-gradient(circle at bottom right, rgba(169, 121, 255, 0.3), transparent 30rem),
+    linear-gradient(135deg, #090b1a 0%, #111735 55%, #1b1140 100%);
+  overflow-x: hidden;
+}
+
+body::before {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  content: "";
+  background-image:
+    radial-gradient(#ffffff 0.75px, transparent 0.75px),
+    radial-gradient(#8ef8ff 0.65px, transparent 0.65px);
+  background-position: 0 0, 42px 38px;
+  background-size: 86px 86px, 110px 110px;
+  opacity: 0.22;
+}
+
+.countdown-shell {
+  display: grid;
+  min-height: 100vh;
+  place-items: center;
+  padding: 2rem;
+}
+
+.hero-card {
+  width: min(960px, 100%);
+  padding: clamp(2rem, 5vw, 4.5rem);
+  text-align: center;
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 32px;
+  box-shadow: 0 28px 80px var(--shadow);
+  backdrop-filter: blur(24px);
+}
+
+.eyebrow {
+  margin: 0 0 0.85rem;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.28em;
+  color: var(--accent);
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(3rem, 9vw, 7rem);
+  line-height: 0.95;
+  letter-spacing: -0.08em;
+}
+
+.subtitle {
+  max-width: 36rem;
+  margin: 1.35rem auto 2rem;
+  color: var(--muted);
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  line-height: 1.8;
+}
+
+.target-form {
+  max-width: 40rem;
+  margin: 0 auto 2rem;
+  text-align: left;
+}
+
+.target-form label {
+  display: block;
+  margin-bottom: 0.65rem;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.form-row {
+  display: flex;
+  gap: 0.75rem;
+}
+
+input,
+button {
+  min-height: 3.25rem;
+  border: 0;
+  border-radius: 999px;
+  font: inherit;
+}
+
+input {
+  flex: 1;
+  min-width: 0;
+  padding: 0 1.15rem;
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.1);
+  outline: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+button {
+  padding: 0 1.4rem;
+  color: #10132a;
+  font-weight: 900;
+  cursor: pointer;
+  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+  box-shadow: 0 12px 30px rgba(142, 248, 255, 0.22);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+button:hover,
+button:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 36px rgba(169, 121, 255, 0.32);
+}
+
+.countdown-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(0.75rem, 2vw, 1.2rem);
+}
+
+.time-box {
+  padding: clamp(1rem, 3vw, 1.7rem) 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 24px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.13), rgba(255, 255, 255, 0.05));
+}
+
+.time-box span {
+  display: block;
+  font-size: clamp(2.4rem, 7vw, 5.4rem);
+  font-weight: 900;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.time-box small {
+  display: block;
+  margin-top: 0.8rem;
+  color: var(--muted);
+  font-weight: 800;
+  letter-spacing: 0.2em;
+}
+
+.status-message {
+  min-height: 1.5rem;
+  margin: 1.6rem 0 0;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+@media (max-width: 720px) {
+  .countdown-shell {
+    padding: 1rem;
+  }
+
+  .form-row,
+  .countdown-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .form-row {
+    display: grid;
+  }
+
+  button {
+    width: 100%;
+  }
+}
